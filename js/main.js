@@ -36,7 +36,7 @@ $(document).ready(function() {
             url: '/submit_net',
             dataType: 'json',
             data: JSON.stringify({data}),
-            type: 'POST',
+            type: 'GET',
             success: function (response) {
                 console.log(response);
                 window.location.href('/result.html');

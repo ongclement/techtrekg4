@@ -1,30 +1,32 @@
 class InputData:
   salary        = None
   familySize    = None
-  fcontribution = None
-  presentSavings = None
   investmentGoal = None
 
 class OutputData:
   plan = None
   investment = None
-  emergency  = None
   disposable = None
-  repayment  = None
-
-  def __init__(self):
-    return
+  savings = None
 
 def ParseData(data):
-  # grab all data
-  # optimal plan
-  # year
-  # repaymentamount per month
-  # savings
+  # get PCI
+  pci = data.salary / data.familySize
 
+  # minimum savings (20%)
+  minimum_savings = 0.2 * data.salary
+  need_to_save    = minimum_savings
 
-  return
+  # find optimal plan
+  o_data = OutputData()
+  o_data.plan = GetOptimalPlan(pci)
+  o_data.investment = float(GetInvestment(data.investmentGoal))
+  o_data.savings = float(need_to_save)
+  o_data.disposable = float(data.salary - o_data.savings - o_data.investment)
+  return o_data
 
-def SortData(data):
-  return
+def GetOptimalPlan(pci):
+  return "HLXXXXX"
 
+def GetInvestment(investment):
+  return (investment / 5) / 12
