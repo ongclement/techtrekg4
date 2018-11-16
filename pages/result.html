@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <link rel="stylesheet" href='../templates/main.css'>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script>
@@ -33,12 +36,66 @@
 
             });
         });
+
+
     </script>
 </head>
 <body>
 <div class="header"></div>
 <div class="container border-dark page-body">
-    <div id="tablebod"></div>
+    <div class="p-5">
+        Recommended Plan: XXXX
+    </div>
+    <div class="px-5">
+        Recommended Monthly Breakdown:<br><br>
+        <div>
+            <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+                <script>
+                    Highcharts.chart('container', {
+                        chart: {
+                            plotBackgroundColor: null,
+                            plotBorderWidth: null,
+                            plotShadow: false,
+                            type: 'pie'
+                        },
+                        title: {
+                            text: 'Recommended Salary Breakdown'
+                        },
+                        tooltip: {
+                            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                        },
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: false
+                                },
+                                showInLegend: true
+                            }
+                        },
+                        series: [{
+                            name: 'Allocated',
+                            colorByPoint: true,
+                            data: [{
+                                name: 'Savings',
+                                y: 61.41,
+                                sliced: true,
+                            }, {
+                                name: 'Expenditures',
+                                y: 11.84,
+                                sliced: true,
+                            }, {
+                                name: 'Investment',
+                                y: 10.85,
+                                sliced: true,
+                            }]
+                        }]
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="footer"></div>
 </body>
