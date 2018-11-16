@@ -9,14 +9,15 @@ $(document).ready(()=>{
 
 	// having clientID and secret in code here is not recommended
 	// but we leave it here since this is just a sample demo
-	var clientId = '45834350-24bc-4fb0-9867-3f7ca30e650e';
-	var clientSecret = 'fdd4059c-b192-43b4-bd2e-6d75f5637e7f';
+	var clientId = '3a08fd2f-bba7-4c3a-b73e-515662eee350';
+	var clientSecret = '32608105-f40d-4857-8e99-ceb081a1f75a';
 
 	// use https://cors-anywhere.herokuapp.com/ if you are planning to host 
 	// a local webserver for your app to bypass CORS issue with OAuth2
 	// of course, this is not recommended also in a real world application
 	var corsbypass = "https://cors-anywhere.herokuapp.com/";
 	console.log(qs);
+	console.log(clientId)
 
 	var empty = "";
 
@@ -90,7 +91,7 @@ $(document).ready(()=>{
 		  "url": corsbypass + "https://www.dbs.com/sandbox/api/sg/v1/oauth/tokens",
 		  "method": "POST",
 		  "headers": {
-		    "authorization": "Basic NDU4MzQzNTAtMjRiYy00ZmIwLTk4NjctM2Y3Y2EzMGU2NTBlOmZkZDQwNTljLWIxOTItNDNiNC1iZDJlLTZkNzVmNTYzN2U3Zg==",
+		    "authorization": "Basic M2EwOGZkMmYtYmJhNy00YzNhLWI3M2UtNTE1NjYyZWVlMzUwOjMyNjA4MTA1LWY0MGQtNDg1Ny04ZTk5LWNlYjA4MWExZjc1YQ==",
 		    "content-type": "application/x-www-form-urlencoded",
 		    "cache-control": "no-cache"
 		  },
@@ -124,13 +125,13 @@ $(document).ready(()=>{
 	  	var applicantSettings = {
 		  "async": true,
 		  "crossDomain": true,
-		  "url": corsbypass + "https://www.dbs.com/sandbox/api/sg/v1/mortgages/170711048/applicants",
+		  "url": corsbypass + "https://www.dbs.com/sandbox/api/sg/v1/mortgages/packages?partyId=12867303374682056150002&loanType=PROD_HL&propertyType=Landed%20(Private)",
 		  "method": "GET",
 		  "headers": {
 		    "content-type": "application/json",
 		    "accesstoken": api_access["access_token"],
 		    "clientid": clientId,
-		    "authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiIDogImh0dHBzOi8vY2FwaS5kYnMuY29tIiwiaWF0IiA6IDE1NDA4ODQ1MjAwMDgsICJleHAiIDogMTU0MDg4ODEyMDAwOCwic3ViIiA6ICJTVmN3TXpZPSIsInB0eXR5cGUiIDogMSwiY2xuaWQiIDogIjQ1ODM0MzUwLTI0YmMtNGZiMC05ODY3LTNmN2NhMzBlNjUwZSIsImNsbnR5cGUiIDogIjIiLCAiYWNjZXNzIiA6ICIxRkEiLCJzY29wZSIgOiAiMkZBLVNNUyIgLCJhdWQiIDogImh0dHBzOi8vY2FwaS5kYnMuY29tL2FjY2VzcyIgLCJqdGkiIDogIjM5NTQ4ODE1NzQ2OTMwMzUzMSIgLCJjaW4iIDogIlEwbE9NREF3TURBeCJ9.S03vCGQSYafw6CM9UjqMEpwLwAoMNHrWjFcChT2QlP0^Q0lOMDAwMDAx",
+		    "authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiIDogImh0dHBzOi8vY2FwaS5kYnMuY29tIiwiaWF0IiA6IDE1NDIzNDIyMTkwMzQsICJleHAiIDogMTU0MjM0NTgxOTAzNCwic3ViIiA6ICJTVmN3TXpZPSIsInB0eXR5cGUiIDogMSwiY2xuaWQiIDogIjNhMDhmZDJmLWJiYTctNGMzYS1iNzNlLTUxNTY2MmVlZTM1MCIsImNsbnR5cGUiIDogIjIiLCAiYWNjZXNzIiA6ICIxRkEiLCJzY29wZSIgOiAiMkZBLVNNUyIgLCJhdWQiIDogImh0dHBzOi8vY2FwaS5kYnMuY29tL2FjY2VzcyIgLCJqdGkiIDogIjgyMDU0NDMyMTI3NDU3OTMyNDYiICwiY2luIiA6ICJRMGxPTURBd01EQXgifQ.FK7DveyAzQSMPFa42XT_elJjs28A5TxYKGJ00AGNGsc",
 		    "cache-control": "no-cache"
 		  },
 		  "data": JSON.stringify(applicantData)
