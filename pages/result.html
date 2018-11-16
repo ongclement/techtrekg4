@@ -9,42 +9,17 @@
     <link rel="stylesheet" href='../templates/main.css'>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script>
-        $(function(){
+        $(function() {
             $(".header").load("../templates/header.html");
             $(".footer").load("../templates/footer.html");
-
-            var applicantSettings = {
-                "async": true,
-                "crossDomain": true,
-                "url": '',
-                "method": "GET",
-                "data": JSON.stringify(applicantData)
-            }
-            $.ajax(applicantSettings).done(function (response) {
-                $('#showdetails').show();
-                //render each row based on the data we retrieved
-                for (var i = 0; i < response.applicantList.length; i++) {
-                    var elem = response.applicantList[i];
-                    var tabletext = `
-                        <tr class="tablerow">
-                            <td>` + elem.applicant.applicantId + `</td>
-                            <td>` + elem.applicant.name.salutation + `</td>
-                            <td>` + elem.applicant.name.fullName + `</td>
-                        </tr>`;
-                    $('#tablebod').append(tabletext);
-                }
-
-            });
         });
-
-
     </script>
 </head>
 <body>
 <div class="header"></div>
 <div class="container border-dark page-body">
-    <div class="p-5">
-        Recommended Plan: XXXX
+    <div class="px-5 pt-5 pb-2">
+        Recommended Plan: HL00281 DBS Life Savings Plan
     </div>
     <div class="px-5">
         Recommended Monthly Breakdown:<br><br>
@@ -66,7 +41,6 @@
                         },
                         plotOptions: {
                             pie: {
-                                allowPointSelect: true,
                                 cursor: 'pointer',
                                 dataLabels: {
                                     enabled: false
@@ -79,20 +53,70 @@
                             colorByPoint: true,
                             data: [{
                                 name: 'Savings',
-                                y: 61.41,
+                                y: 30,
                                 sliced: true,
                             }, {
                                 name: 'Expenditures',
-                                y: 11.84,
+                                y: 55,
                                 sliced: true,
                             }, {
                                 name: 'Investment',
-                                y: 10.85,
+                                y: 15,
                                 sliced: true,
                             }]
                         }]
                     });
                 </script>
+            </div>
+            <div id="container-2">
+                <script>
+                    Highcharts.chart('container-2', {
+
+                        title: {
+                            text: 'Savings return at end of year'
+                        },
+
+                        yAxis: {
+                            title: {
+                                text: 'Savings'
+                            }
+                        },
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'middle'
+                        },
+                        plotOptions: {
+                            series: {
+                                label: {
+                                    connectorAllowed: false
+                                },
+                                pointStart: 2018
+                            }
+                        },
+
+                        series: [{
+                            name: 'Savings',
+                            data: [12500, 30000, 48600, 70658, 100031, 130931, 180133, 240175]
+                        }],
+
+                        responsive: {
+                            rules: [{
+                                condition: {
+                                    maxWidth: 500
+                                },
+                                chartOptions: {
+                                    legend: {
+                                        layout: 'horizontal',
+                                        align: 'center',
+                                        verticalAlign: 'bottom'
+                                    }
+                                }
+                            }]
+                        }
+
+                    });
+                </script><br><br>
             </div>
         </div>
     </div>
