@@ -22,12 +22,12 @@ $(document).ready(function() {
     });
 
     $('.data-form-submit').on('click', function() {
-        const age = $('#age').val();
+        const goal = $('#goal').val();
         const salary = $('#salary').val();
         const familySize = $('#myRange').val();
 
         const data = {
-            age: age,
+            goal: goal,
             salary: salary,
             familySize : familySize,
         }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href='../templates/main.css'>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script>
+        $(function(){
+            $(".header").load("../templates/header.html");
+            $(".footer").load("../templates/footer.html");
+
+            var applicantSettings = {
+                "async": true,
+                "crossDomain": true,
+                "url": '',
+                "method": "GET",
+                "data": JSON.stringify(applicantData)
+            }
+            $.ajax(applicantSettings).done(function (response) {
+                $('#showdetails').show();
+                //render each row based on the data we retrieved
+                for (var i = 0; i < response.applicantList.length; i++) {
+                    var elem = response.applicantList[i];
+                    var tabletext = `
+                        <tr class="tablerow">
+                            <td>` + elem.applicant.applicantId + `</td>
+                            <td>` + elem.applicant.name.salutation + `</td>
+                            <td>` + elem.applicant.name.fullName + `</td>
+                        </tr>`;
+                    $('#tablebod').append(tabletext);
+                }
+
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="header"></div>
+<div class="container border-dark page-body">
+    <div id="tablebod"></div>
+</div>
+<div class="footer"></div>
+</body>
+</html>
