@@ -17,17 +17,17 @@
 <body>
 <div class="header"></div>
 <div class="container border-dark page-body py-5">
-    <form class="py-5">
+    <form id="data-form" class="py-5">
         <div class="question-container question-1 py-5">
             <h3>Question 1: How old are you this year?</h3><br><br>
-            <input type="text" name="age"><br><br>
+            <input id="age" type="text" name="age"><br><br>
             <div class="btn btn-success float-right next-question-1">
                 <i class="fa fa-arrow-circle-right fa-lg"></i> Next
             </div>
         </div>
         <div class="question-container question-2 py-5">
             <h3>Question 2: What is your annual combined salary?</h3><br><br>
-            SGD$ <input type="text" name="salary"><br><br><br>
+            SGD$ <input id="salary" type="text" name="salary"><br><br><br>
             <div class="btn btn-success float-left prev-question-2">
                 <i class="fa fa-arrow-circle-left fa-lg"></i> Back
             </div>
@@ -52,7 +52,7 @@
             <div class="btn btn-success float-left prev-question-3">
                 <i class="fa fa-arrow-circle-left fa-lg"></i> Back
             </div>
-            <div class="btn btn-success float-right form-submit-btn">
+            <div type="submit" class="btn btn-success float-right data-form-submit">
                 <i class="fa fa-arrow-circle-right fa-lg"></i> Submit
             </div>
         </div>
