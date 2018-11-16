@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/main.js"></script>
+    <link rel="stylesheet" href='../templates/main.css'>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script>
+        $(function(){
+            $(".header").load("../templates/header.html");
+            $(".footer").load("../templates/footer.html");
+        });
+
+    </script>
+</head>
+<body>
+<div class="header"></div>
+<div class="container border-dark page-body py-5">
+    <form class="py-5">
+        <div class="question-container question-1 py-5">
+            <h3>Question 1: How old are you this year?</h3><br><br>
+            <input type="text" name="age"><br><br>
+            <div class="btn btn-success float-right next-question-1">
+                <i class="fa fa-arrow-circle-right fa-lg"></i> Next
+            </div>
+        </div>
+        <div class="question-container question-2 py-5">
+            <h3>Question 2: What is your annual combined salary?</h3><br><br>
+            SGD$ <input type="text" name="salary"><br><br><br>
+            <div class="btn btn-success float-left prev-question-2">
+                <i class="fa fa-arrow-circle-left fa-lg"></i> Back
+            </div>
+            <div class="btn btn-success float-right next-question-2">
+                <i class="fa fa-arrow-circle-right fa-lg"></i> Next
+            </div>
+        </div>
+        <div class="question-container question-3 py-5">
+            <h3>Question 3: What is your ideal family size?</h3><br><br><br>
+            <div class="range-slider w-50">
+                <input type="range" min="0" max="10" value="5" class="slider" id="myRange">
+                <p>Value: <span id="demo"></span></p>
+            </div>
+            <script>
+                const slider = document.getElementById("myRange");
+                const output = document.getElementById("demo");
+                output.innerHTML = slider.value;
+                slider.oninput = function() {
+                    output.innerHTML = this.value;
+                }
+            </script>
+            <div class="btn btn-success float-left prev-question-3">
+                <i class="fa fa-arrow-circle-left fa-lg"></i> Back
+            </div>
+            <div class="btn btn-success float-right form-submit-btn">
+                <i class="fa fa-arrow-circle-right fa-lg"></i> Submit
+            </div>
+        </div>
+    </form>
+</div>
+<div class="footer"></div>
+</body>
+</html>
